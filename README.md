@@ -1,59 +1,51 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Membership Information System - Technical Test
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+    <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="300" alt="Laravel Logo">
 </p>
 
-## About Laravel
+Sistem Membership sederhana ini dibangun untuk memenuhi kriteria tes teknis pemilihan developer. Aplikasi ini mengelola hak akses konten (artikel dan video) berdasarkan tiga tingkatan membership yang berbeda secara dinamis.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 Fitur Utama
+- **Multi-Tier Membership**: Pembatasan akses konten otomatis berdasarkan tipe akun.
+  - **Tipe A**: Akses terbatas ke 3 Artikel & 3 Video (Default pendaftar baru).
+  - **Tipe B**: Akses menengah ke 10 Artikel & 10 Video.
+  - **Tipe C**: Akses penuh ke seluruh konten artikel dan video.
+- **OAuth Social Login**: Integrasi login menggunakan pihak ketiga (**Google** & **Facebook**) menggunakan Laravel Socialite.
+- **Manual Authentication**: Sistem registrasi dan login manual yang aman dengan redirect khusus setelah registrasi.
+- **Responsive Dashboard**: Antarmuka modern dan bersih menggunakan **Tailwind CSS 3** dan **Plus Jakarta Sans** font.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🛠️ Tech Stack
+- **Backend**: Laravel 11 (PHP 8.2+)
+- **Frontend**: Tailwind CSS 3, Blade Templating, Alpine.js
+- **Database**: MySQL
+- **Library**: Laravel Socialite (OAuth 2.0)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 📖 Instruksi Instalasi
 
-## Learning Laravel
+Pastikan Anda memiliki PHP 8.2+ dan Composer terinstal di sistem Anda.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. **Clone Repository**
+   ```bash
+   git clone [https://github.com/haapiid/astronacci-test.git](https://github.com/haapiid/astronacci-test.git)
+   cd astronacci-test
+2. **Install Dependencies**
+    ```bash
+    composer install
+    npm install && npm run build
+3. **Konfigurasi Enviroment**
+    - Salin .env.example menjadi .env
+    - Sesuaikan DB_DATABASE, DB_USERNAME, dan DB_PASSWORD
+    - Masukkan Client ID dan Secret untuk Google & Facebook Socialite di bagian bawah file .env.
+4. **Setup Database & Seeding**
+    jalankan migrasi untuk membuat struktur tabel dan membuat data awal artikel/video
+    ```bash
+    php artisan migrate:fresh --seed
+5. **Jalankan Aplikasi**
+    ```bash
+    php artisan serve
+**Dokumentasi Video**
+Demonstrasi jalannya masing-masing fungsi (Register, Login, Social Login, dan Perubahan Tipe Membership) dapat dilihat melalui tautan berikut:
+https://drive.google.com/file/d/1CNgjYCw3iKi1pKqOUI6WxNWW412Bshm0/view?usp=sharing
+**Catatan Teknis Facebook Login**
+Implementasi kode untuk Facebook Login sudah tersedia sepenuhnya pada SocialiteController.php. Namun, karena kebijakan verifikasi akun developer Meta yang memerlukan waktu, demonstrasi login sosial difokuskan pada Google Login yang sudah berjalan 100%.
